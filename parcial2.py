@@ -1,6 +1,10 @@
 #esto es para hacer un commit
 # Proyector-Parcial1
 #Vamos a desarollar el proyecto de python del primer parcial
+#import sys
+#import os
+#sys.path.append(os.path.abspath(os.path.join(os.path.dirname(_file_), '..')))
+
 def inicio():
     print("vamos a selecionar el procedimiento a ejecutar")
     # iniciamos la seleccion del programa y se valida la respuesta
