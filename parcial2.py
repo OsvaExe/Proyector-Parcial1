@@ -4,6 +4,8 @@
 #import sys
 #import os
 #sys.path.append(os.path.abspath(os.path.join(os.path.dirname(_file_), '..')))
+## esto es un comentario para ver como se agrega al programa principal
+print ("hola mundo")
 
 def inicio():
     print("vamos a selecionar el procedimiento a ejecutar")
