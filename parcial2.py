@@ -5,6 +5,36 @@
 import sys 
 import os
 ## esto es un comentario para ver como se agrega al programa principal
+def caliMin():
+    print("Programa para determinar la calificacion minima del tercer parcial para acreditar")
+    print("Por favor ingresa las dos calificaciones entre 0 y 10")
+    while True:
+        try:
+            calif1 = float(input("Primer calificación: "))
+            if calif1 < 0 or calif1 > 10:
+                print("Calificación NO válida")
+                continue
+            calif2 = float(input("Segunda calificación: "))
+            if calif2 < 0 or calif2 > 10:
+                print("Calificación NO válida") 
+                continue
+            break
+        except ValueError:
+            print("El valor que tecleaste no es válido, debe ser un NUMERO DECIMAL entre 0 y 10.")
+            continue
+    calif3=((7-((calif1+calif2)*0.3))/0.4)
+    if calif3>10:
+        print("En el 3er parcial debes obtener un: ", calif3)
+        print("Ya no se puede hacer nada, lo siento \U0001F9D0 	")  
+    elif calif3==10:
+        print("En el 3er parcial debes obtener un: ", calif3)
+        print("Si estas usando este programa no creo que lo logres, pero suerte.")
+    elif calif3<5:
+        print("En el 3er parcial debes obtener un: ",calif3)
+        print("Quedate tranquilo") 
+    else:
+        print("En el 3er parcial debes obtener un: ",calif3)
+
 def finalizar ():
     print("hasta luego")
     terminar="si"
@@ -14,7 +44,7 @@ def finalizar ():
 def inicio():
     terminar="no"
     while terminar == "no":
-        print("vamos a selecionar el procedimiento a ejecutar")
+        print("Vamos a selecionar el procedimiento a ejecutar")
     # iniciamos la seleccion del programa y se valida la respuesta
         while True: 
             print("Selecciona \n 1 - Promedio \n 2 - tercer parcial \n 3 - Faltas \n 4 - NA's \n 5 - salir")    
@@ -32,19 +62,21 @@ def inicio():
             break
         match seleccionint:
             case 1:
-                print ("promedio")
+                print ("Obtener el promedio de tres evaluaciones.")
+                
             case 2:
-                print ("tercer parcial")
+                print ("Califiacion minima del tercer parcial para acreditar la materia.")
+                caliMin()
             case 3:
-                print ("Faltas")
+                print ("Seleccionaste la función de Faltas")
             case 4:
-                print("NA's")
+                print("Seleccionaste la función de NA's.")
                 while True:
                     try:
                         s = int(input("Ingresa tu semestre actual: "))
                         na = int(input("Ingresa el número de NA's que tienes acumulado: "))
 
-                        if s < 1 or s > 8:
+                        if s < 1 or s > 9:
                             print("El semestre debe ser mayor a 0 y menor que 9.")
                             continue
                         if na < 0:
@@ -80,12 +112,10 @@ def inicio():
                                 print("Estás en riesgo")
                             elif 0 <= na <= 6:
                                 print("Todo bien")
-                        case 7:
-                            na7(na)
                         case _:
                             na7(na)
             case 5:
-                print("final")
+                print("Seleccionaste salir")
                 terminar=finalizar()
     #   Aqui vamos a iniciar el programa
     
