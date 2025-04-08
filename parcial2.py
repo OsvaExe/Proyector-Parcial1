@@ -2,8 +2,10 @@
 #esto es para hacer un commit
 # Proyector-Parcial1
 #Vamos a desarollar el proyecto de python del primer parcial
+from programa.promediop2 import promedio
 import sys 
 import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(_file_),'..')))    
 ## esto es un comentario para ver como se agrega al programa principal
 def caliMin():
     print("Programa para determinar la calificacion minima del tercer parcial para acreditar")
@@ -63,7 +65,7 @@ def inicio():
         match seleccionint:
             case 1:
                 print ("Obtener el promedio de tres evaluaciones.")
-                
+                promedio()
             case 2:
                 print ("Califiacion minima del tercer parcial para acreditar la materia.")
                 caliMin()
