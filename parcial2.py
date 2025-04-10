@@ -8,10 +8,11 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),'..')))    
 from programa.promediop2 import promedio
 ## esto es un comentario para ver como se agrega al programa principal
+#funcion para determinar la calificacion minima
 def caliMin():
     print("Programa para determinar la calificacion minima del tercer parcial para acreditar")
     print("Por favor ingresa las dos calificaciones entre 0 y 10")
-    while True:
+    while True:    #aqui validamos la calificacion
         try:
             calif1 = float(input("Primer calificación: "))
             if calif1 < 0 or calif1 > 10:
@@ -25,7 +26,7 @@ def caliMin():
         except ValueError:
             print("El valor que tecleaste no es válido, debe ser un NUMERO DECIMAL entre 0 y 10.")
             continue
-    calif3=((7-((calif1+calif2)*0.3))/0.4)
+    calif3=((7-((calif1+calif2)*0.3))/0.4)# formula para obtener el valor requerido
     if calif3>10:
         print("En el 3er parcial debes obtener un: ", calif3)
         print("Ya no se puede hacer nada, lo siento \U0001F9D0 	")  
@@ -38,6 +39,7 @@ def caliMin():
     else:
         print("En el 3er parcial debes obtener un: ",calif3)
 
+# funcion para terminar el programa con opcion 5
 def finalizar ():
     print("hasta luego")
     terminar="si"
