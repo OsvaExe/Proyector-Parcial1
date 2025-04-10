@@ -1,6 +1,5 @@
 #Programa para calcular el promedio de tres evaluaciones
 def promedio():
-    print("Programa para calcular el promedio de tres evaluaciones")
     print("Por favor ingresa las calificaciones entre 0 y 10")
     while True:
         try:
@@ -31,4 +30,5 @@ def promedio():
         print("Vete a conta bro \U0001F978")
     else:
         print("Reprobaste la materia")   
-promedio()
+if __name__ == "__main__":
+    promedio()
