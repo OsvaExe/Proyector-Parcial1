@@ -4,8 +4,10 @@
 #Vamos a desarollar el proyecto de python del primer parcial
 import sys 
 import os
+sys.path.append("C:\ProgramaP2\Proyector-Parcial1") #cambio de directorio de la función
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),'..')))    
-from programa.promediop2 import promedio
+from programa.promediop2 import promedio # importamos la funcion promedio
+from FaltasFunc import consultaFaltas # importamos la funcion de faltas
 ## esto es un comentario para ver como se agrega al programa principal
 #funcion para determinar la calificacion minima
 def caliMin():
@@ -13,10 +15,10 @@ def caliMin():
     print("Por favor ingresa las dos calificaciones entre 0 y 10")
     while True:    #aqui validamos la calificacion
         try:
-            calif1 = float(input("Primer calificación: "))
+            calif1 = float(input("Primer calificación: ")) 
             if calif1 < 0 or calif1 > 10:
                 print("Calificación NO válida")
-                continue
+                continue 
             calif2 = float(input("Segunda calificación: "))
             if calif2 < 0 or calif2 > 10:
                 print("Calificación NO válida") 
@@ -39,11 +41,11 @@ def caliMin():
         print("En el 3er parcial debes obtener un: ",calif3)
 
 # funcion para terminar el programa con opcion 5
-def finalizar ():
+def finalizar (): 
     print("hasta luego")
     terminar="si"
     return terminar
-
+   
 
 def inicio():
     terminar="no"
@@ -66,13 +68,14 @@ def inicio():
             break
         match seleccionint:
             case 1:
-                print ("Obtener el promedio de tres evaluaciones.")
-                promedio()
+                print ("Obtener el promedio de tres evaluaciones.") 
+                promedio()  
             case 2:
                 print ("Califiacion minima del tercer parcial para acreditar la materia.")
-                caliMin()
+                caliMin() 
             case 3:
                 print ("Seleccionaste la función de Faltas")
+                consultaFaltas()
             case 4:
                 print("Seleccionaste la función de NA's.")
                 while True:
