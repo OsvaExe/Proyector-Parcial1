@@ -1,25 +1,69 @@
 def consultaFaltas():   
-    # Datos iniciales
-    total_clases = int(input("Introduce el número total de clases de una materia por semestre: "))
-    asistencias = int(input("Introduce el número de asistencias del alumno: "))
-    inasistencias = total_clases - asistencias
-
-    # Cálculos de porcentaje
-    porcentaje_asistencia = (asistencias / total_clases) * 100
-
-    # Mensajes según los artículos
-    if porcentaje_asistencia >= 80:
-        print("El alumno tiene derecho a presentar el examen ordinario.")
-    elif 60 <= porcentaje_asistencia < 80:
-        print("El alumno tiene derecho a presentar el examen no ordinario.")
-    elif porcentaje_asistencia < 60:
-        print("El alumno debe repetir el curso y no tiene derecho a evaluaciones no ordinarias.")
+    while True:
+        horas_semana=input("por favor ingrese la cantidad de horas por semana [1-5] que tiene la materia en cuestion o 's' para salir \n\n:")
+        try:
+            horas_semana=int(horas_semana)
+        except:
+            if horas_semana=="s":
+                break 
+            print("solo  entre 1 y 5 horas, no caracteres ")
+            continue
+        if 1<=horas_semana <=5:
+            horas_totales= horas_semana*16
+            print("son ",horas_totales, " horas de clase por semestre " )        
+        else:
+            print("las horas por semana tienen que ser en 1 a 5 horas \nvuelve a intentar ")
+            continue
     
-    # Verificación adicional (artículo 61)
-    carga_aprobada = int(input("Introduce el porcentaje de carga académica aprobada: "))
-    if porcentaje_asistencia >= 60 and carga_aprobada >= 50:
-        print("El alumno puede presentar evaluaciones no ordinarias.")
-    else:
-        print("El alumno no cumple con los requisitos para evaluaciones no ordinarias.")
+    #validacion de entrada de faltas
+        faltas=input("ingrese el numero de faltas: ")
+        try:
+            faltas=int(faltas)
+        except:
+            print("solo numeros enteros")
+            continue
+    
+    
+        porcentaje_asistencia=(faltas/horas_totales)*100
+        print("porcentaje de asistencia = ",100-porcentaje_asistencia,"%")
+    
+        # el porcentaje es mayor a 80%
+        if porcentaje_asistencia<=20:
+            print("tienes tienes derecho a ordinario y no ordinario")
+            continue
+    
+        # si el procentaje de asistencia es menor que 60 no tiene derecho a nada
+        if porcentaje_asistencia > 40:
+            print("no tienes derecho a ordinario ni a no ordinario")
+            continue
+
+    #tiene entre 60 y 79.99 % de asistencia se va a no ordinario
+    #si se tiene que ir a no ordinario verificar art 61 
+        if porcentaje_asistencia >20 and porcentaje_asistencia <=40: # porcentaje de asistencia mayor que 60% pero menor que 80%
+            while True:
+                materias=input("cuantas materias llevas [1 - 8]:   o 's' para salir ")
+                try:
+                    materias=int(materias)
+                    if materias<=0 or materias >=9:# validar que el numero de materias sea entre 1 y 8
+                        print("el numero de materias tiene que ser entre 1 y 8, vuelve a intentar")
+                        continue
+                    elif materias==1:# si lleva solo una materia y tiene mas de 40% de faltas no tiene derecho a ordinario
+                        print("solo llevas una materia y tienes ",porcentaje_asistencia,"'%' de faltas no hay nada que se pueda hacer\n no tienes derecho a no ordinarion ni a ordinario")
+                        break
+                    else:# tiene que tener minimo la mitad de materias aprobadas
+                        materias_aporbadas=int(input("de esas cuantas pasaste: "))
+                        if materias_aporbadas>= materias/2:
+                            print("como tiene menos de 80%, de asistencia pero cumples con el art 61 tienes derecho a no ordinarios")
+                            break
+                        else:
+                            print("aprobaste menos de la mitad de carga curricular que llevas este semestre \n no tienes derecho a no ordinarios, es hora de repetir materias")
+                            break
+                except:
+                    if materias=="s":
+                        break
+                    else:
+                        print("solo numeros enteros del 1 a 8 materias")
+                        continue
+
 if __name__ == "__main__":
     consultaFaltas()
