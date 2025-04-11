@@ -1,4 +1,4 @@
-def consultaFaltas():
+def consultaFaltas():   
     # Datos iniciales
     total_clases = int(input("Introduce el número total de clases de una materia por semestre: "))
     asistencias = int(input("Introduce el número de asistencias del alumno: "))
