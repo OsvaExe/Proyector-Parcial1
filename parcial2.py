@@ -4,16 +4,21 @@
 #Vamos a desarollar el proyecto de python del primer parcial
 import sys 
 import os
+sys.path.append("C:\ProgramaP2\Proyector-Parcial1") #cambio de directorio de la función
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),'..')))    
+from programa.promediop2 import promedio # importamos la funcion promedio
+from FaltasFunc import consultaFaltas # importamos la funcion de faltas
 ## esto es un comentario para ver como se agrega al programa principal
+#funcion para determinar la calificacion minima
 def caliMin():
     print("Programa para determinar la calificacion minima del tercer parcial para acreditar")
     print("Por favor ingresa las dos calificaciones entre 0 y 10")
-    while True:
+    while True:    #aqui validamos la calificacion
         try:
-            calif1 = float(input("Primer calificación: "))
+            calif1 = float(input("Primer calificación: ")) 
             if calif1 < 0 or calif1 > 10:
                 print("Calificación NO válida")
-                continue
+                continue 
             calif2 = float(input("Segunda calificación: "))
             if calif2 < 0 or calif2 > 10:
                 print("Calificación NO válida") 
@@ -22,7 +27,7 @@ def caliMin():
         except ValueError:
             print("El valor que tecleaste no es válido, debe ser un NUMERO DECIMAL entre 0 y 10.")
             continue
-    calif3=((7-((calif1+calif2)*0.3))/0.4)
+    calif3=((7-((calif1+calif2)*0.3))/0.4)# formula para obtener el valor requerido
     if calif3>10:
         print("En el 3er parcial debes obtener un: ", calif3)
         print("Ya no se puede hacer nada, lo siento \U0001F9D0 	")  
@@ -35,11 +40,12 @@ def caliMin():
     else:
         print("En el 3er parcial debes obtener un: ",calif3)
 
-def finalizar ():
+# funcion para terminar el programa con opcion 5
+def finalizar (): 
     print("hasta luego")
     terminar="si"
     return terminar
-
+   
 
 def inicio():
     terminar="no"
@@ -52,23 +58,24 @@ def inicio():
             try:
                 seleccionint=int(seleccion)
                 if 1 <= seleccionint <= 5:
-                    print("el numero seleccionado fue: ", seleccionint)          
+                    print("El numero seleccionado fue: ", seleccionint)          
                 else:
-                    print("la seleccion debe ser entre 1 y 5 ")
+                    print("La seleccion debe ser entre 1 y 5 ")
                     continue
             except:
-                print("selecciona un numero de 1 a 5")
+                print("Selecciona un numero de 1 a 5")
                 continue
             break
         match seleccionint:
             case 1:
-                print ("Obtener el promedio de tres evaluaciones.")
-                
+                print ("Obtener el promedio de tres evaluaciones.") 
+                promedio()  
             case 2:
                 print ("Califiacion minima del tercer parcial para acreditar la materia.")
-                caliMin()
+                caliMin() 
             case 3:
                 print ("Seleccionaste la función de Faltas")
+                consultaFaltas()
             case 4:
                 print("Seleccionaste la función de NA's.")
                 while True:
