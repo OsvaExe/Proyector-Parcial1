@@ -2,7 +2,6 @@
 #esto es para hacer un commit
 # Proyector-Parcial1
 #Vamos a desarollar el proyecto de python del primer parcial
-
 import sys 
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),'..')))    
@@ -57,12 +56,12 @@ def inicio():
             try:
                 seleccionint=int(seleccion)
                 if 1 <= seleccionint <= 5:
-                    print("el numero seleccionado fue: ", seleccionint)          
+                    print("El numero seleccionado fue: ", seleccionint)          
                 else:
-                    print("la seleccion debe ser entre 1 y 5 ")
+                    print("La seleccion debe ser entre 1 y 5 ")
                     continue
             except:
-                print("selecciona un numero de 1 a 5")
+                print("Selecciona un numero de 1 a 5")
                 continue
             break
         match seleccionint:
