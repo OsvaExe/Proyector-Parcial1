@@ -11,7 +11,7 @@ from FaltasFunc import consultaFaltas # importamos la funcion de faltas
 ## esto es un comentario para ver como se agrega al programa principal
 #funcion para determinar la calificacion minima
 def caliMin():
-    print("Programa para determinar la calificacion minima del tercer parcial para acreditar")
+    print("Programa para determinar la calificacion minima del tercer parcial para acreditar la materia.")
     print("Por favor ingresa las dos calificaciones entre 0 y 10")
     while True:    #aqui validamos la calificacion
         try:
@@ -71,7 +71,6 @@ def inicio():
                 print ("Obtener el promedio de tres evaluaciones.") 
                 promedio()  
             case 2:
-                print ("Califiacion minima del tercer parcial para acreditar la materia.")
                 caliMin() 
             case 3:
                 print ("Seleccionaste la función de Faltas")
