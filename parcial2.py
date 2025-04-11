@@ -1,7 +1,5 @@
-#Código mediocre abajo
-#esto es para hacer un commit
-# Proyector-Parcial1
-#Vamos a desarollar el proyecto de python del primer parcial
+# Proyecto Parcial 2
+#Vamos a desarollar el proyecto de python del segundo parcial
 import sys 
 import os
 sys.path.append("C:\ProgramaP2\Proyector-Parcial1") #cambio de directorio de la función
