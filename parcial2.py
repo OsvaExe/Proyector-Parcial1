@@ -19,7 +19,7 @@ def caliMin():
                 continue 
             calif2 = float(input("Segunda calificación: "))
             if calif2 < 0 or calif2 > 10:
-                print("Calificación NO válida") 
+                print("Calificación NO válida") #hols
                 continue
             break
         except ValueError:
